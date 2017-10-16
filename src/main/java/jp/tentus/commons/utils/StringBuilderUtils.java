@@ -10,38 +10,13 @@ public final class StringBuilderUtils {
     }
 
     /**
-     * StringBuilder を文字列にします。
-     *
-     * @param s 文字列にする StringBuilder 。
-     * @return 文字列から生成した文字列, StringBuilder が null の場合は null 。
-     */
-    public static String from(StringBuilder s) {
-        return StringBuilderUtils.from(s, null);
-    }
-
-    /**
-     * StringBuilder を文字列にします。
-     *
-     * @param s            文字列にする StringBuilder 。
-     * @param defaultValue デフォルトの文字列。
-     * @return 文字列から生成した文字列, StringBuilder が null の場合は null 。
-     */
-    public static String from(StringBuilder s, String defaultValue) {
-        if (s != null) {
-            return s.toString();
-        } else {
-            return defaultValue;
-        }
-    }
-
-    /**
      * 文字列を StringBuilder にします。
      *
      * @param s StringBuilder にする文字列。
      * @return 文字列から生成した StringBuilder, 文字列が null の場合は null 。
      */
     public static StringBuilder from(String s) {
-        return StringBuilderUtils.from(s, null);
+        return from(s, null);
     }
 
     /**

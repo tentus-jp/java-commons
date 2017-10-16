@@ -10,17 +10,8 @@ public class StringBuilderUtilsTests {
      */
     @Test
     public void testFrom() {
-        StringBuilder sb1 = new StringBuilder("Hello !!");
-        StringBuilder sb2 = null;
-
-        Assert.assertEquals(StringBuilderUtils.from(sb1), "Hello !!");
-        Assert.assertEquals(StringBuilderUtils.from(sb2, "こんにちは"), "こんにちは");
-
-        StringBuilder sb3 = new StringBuilder("Hello !!");
-        StringBuilder sb4 = new StringBuilder("こんにちは");
-
-        Assert.assertEquals(StringBuilderUtils.from(sb3), "Hello !!");
-        Assert.assertEquals(StringBuilderUtils.from(sb4), "こんにちは");
+        Assert.assertEquals(StringBuilderUtils.from("Hello !!").toString(), "Hello !!");
+        Assert.assertEquals(StringBuilderUtils.from(null, new StringBuilder("こんにちは")).toString(), "こんにちは");
     }
 
     /**

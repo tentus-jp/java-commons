@@ -1,9 +1,36 @@
 package jp.tentus.commons.utils;
 
+import java.util.Locale;
+
 /**
  * 文字列に関するコンビニエンスメソッドを提供します。
  */
 public class StringUtils {
+
+    /**
+     * StringBuilder を文字列にします。
+     *
+     * @param s 文字列にする StringBuilder 。
+     * @return 文字列から生成した文字列, StringBuilder が null の場合は null 。
+     */
+    public static String from(StringBuilder s) {
+        return from(s, null);
+    }
+
+    /**
+     * StringBuilder を文字列にします。
+     *
+     * @param s            文字列にする StringBuilder 。
+     * @param defaultValue デフォルトの文字列。
+     * @return 文字列から生成した文字列, StringBuilder が null の場合は null 。
+     */
+    public static String from(StringBuilder s, String defaultValue) {
+        if (s != null) {
+            return s.toString();
+        } else {
+            return defaultValue;
+        }
+    }
 
     /**
      * 文字列がブランクであるかどうか確認します。
@@ -59,6 +86,27 @@ public class StringUtils {
      */
     public static boolean isNotEmpty(CharSequence value) {
         return !isEmpty(value);
+    }
+
+    /**
+     * 小文字にした文字列を得ます。
+     *
+     * @param value 対象の文字列。
+     * @return 小文字にした文字列。
+     */
+    public static String toLowerCase(String value) {
+        return value.toLowerCase(Locale.US);
+    }
+
+    /**
+     * 小文字にした文字列を得ます。
+     *
+     * @param value  対象の文字列。
+     * @param locale 対象のロケール。
+     * @return 小文字にした文字列。
+     */
+    public static String toLowerCase(String value, Locale locale) {
+        return value.toLowerCase(locale);
     }
 
 }

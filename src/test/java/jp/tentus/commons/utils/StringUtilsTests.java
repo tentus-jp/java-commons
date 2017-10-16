@@ -6,6 +6,18 @@ import org.junit.Test;
 public class StringUtilsTests {
 
     /**
+     * from メソッドの動作を確認します。
+     */
+    @Test
+    public void testFrom() {
+        StringBuilder sb1 = new StringBuilder("Hello !!");
+        StringBuilder sb2 = new StringBuilder("こんにちは");
+
+        Assert.assertEquals(StringUtils.from(sb1), "Hello !!");
+        Assert.assertEquals(StringUtils.from(sb2), "こんにちは");
+    }
+
+    /**
      * isBlank, isNotBlank メソッドの動作を確認します。
      */
     @Test

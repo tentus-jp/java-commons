@@ -1,7 +1,5 @@
 package jp.tentus.commons.utils;
 
-import java.util.Locale;
-
 /**
  * 列挙型に対するコンビニエンスメソッドを提供します。
  */
@@ -16,7 +14,7 @@ public class EnumUtils {
      */
     public static String toString(Enum enumValue, String defaultValue) {
         if (enumValue != null) {
-            return enumValue.name().toLowerCase(Locale.US);
+            return StringUtils.toLowerCase(enumValue.name());
         } else {
             return defaultValue;
         }
