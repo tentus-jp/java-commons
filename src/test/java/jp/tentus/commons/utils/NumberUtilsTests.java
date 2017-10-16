@@ -1,5 +1,5 @@
 package jp.tentus.commons.utils;
 
-public class ClassUtilsTests {
+public class NumberUtilsTests {
 
 }
