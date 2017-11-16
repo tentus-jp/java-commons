@@ -95,7 +95,18 @@ public class StringUtils {
      * @return 小文字にした文字列。
      */
     public static String toLowerCase(String value) {
-        return value.toLowerCase(Locale.US);
+        return toLowerCase(value, null, Locale.US);
+    }
+
+    /**
+     * 小文字にした文字列を得ます。
+     *
+     * @param value        対象の文字列。
+     * @param defaultValue value が null などの場合に返される文字列。
+     * @return 小文字にした文字列。
+     */
+    public static String toLowerCase(String value, String defaultValue) {
+        return toLowerCase(value, defaultValue, Locale.US);
     }
 
     /**
@@ -106,7 +117,71 @@ public class StringUtils {
      * @return 小文字にした文字列。
      */
     public static String toLowerCase(String value, Locale locale) {
-        return value.toLowerCase(locale);
+        return toLowerCase(value, null, locale);
+    }
+
+    /**
+     * 小文字にした文字列を得ます。
+     *
+     * @param value        対象の文字列。
+     * @param defaultValue value が null などの場合に返される文字列。
+     * @param locale       対象のロケール。
+     * @return 小文字にした文字列。
+     */
+    public static String toLowerCase(String value, String defaultValue, Locale locale) {
+        if (value != null) {
+            return value.toLowerCase(locale);
+        } else {
+            return defaultValue;
+        }
+    }
+
+    /**
+     * 大文字にした文字列を得ます。
+     *
+     * @param value 対象の文字列。
+     * @return 大文字にした文字列。
+     */
+    public static String toUpperCase(String value) {
+        return toUpperCase(value, null, Locale.US);
+    }
+
+    /**
+     * 大文字にした文字列を得ます。
+     *
+     * @param value        対象の文字列。
+     * @param defaultValue value が null などの場合に返される文字列。
+     * @return 大文字にした文字列。
+     */
+    public static String toUpperCase(String value, String defaultValue) {
+        return toUpperCase(value, defaultValue, Locale.US);
+    }
+
+    /**
+     * 大文字にした文字列を得ます。
+     *
+     * @param value  対象の文字列。
+     * @param locale 対象のロケール。
+     * @return 大文字にした文字列。
+     */
+    public static String toUpperCase(String value, Locale locale) {
+        return toUpperCase(value, null, locale);
+    }
+
+    /**
+     * 大文字にした文字列を得ます。
+     *
+     * @param value        対象の文字列。
+     * @param defaultValue value が null などの場合に返される文字列。
+     * @param locale       対象のロケール。
+     * @return 大文字にした文字列。
+     */
+    public static String toUpperCase(String value, String defaultValue, Locale locale) {
+        if (value != null) {
+            return value.toUpperCase(locale);
+        } else {
+            return defaultValue;
+        }
     }
 
 }

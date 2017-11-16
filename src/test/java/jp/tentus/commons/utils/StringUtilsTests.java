@@ -34,7 +34,7 @@ public class StringUtilsTests {
     }
 
     /**
-     * isEmpty, isNotEmptyメソッドの動作を確認します。
+     * isEmpty, isNotEmpty メソッドの動作を確認します。
      */
     @Test
     public void testIsEmpty() {
@@ -47,6 +47,18 @@ public class StringUtilsTests {
         Assert.assertFalse(StringUtils.isNotEmpty(""));
         Assert.assertTrue(StringUtils.isNotEmpty("A"));
         Assert.assertTrue(StringUtils.isNotEmpty(" "));
+    }
+
+    /**
+     * toLowerCase, toUpperCase メソッドの動作を確認します。
+     */
+    @Test
+    public void testToLowerCaseAndToUpperCase() {
+        Assert.assertEquals(StringUtils.toLowerCase("A"), "a");
+        Assert.assertEquals(StringUtils.toLowerCase(null, "a"), "a");
+
+        Assert.assertEquals(StringUtils.toUpperCase("a"), "A");
+        Assert.assertEquals(StringUtils.toUpperCase(null, "A"), "A");
     }
 
 }
