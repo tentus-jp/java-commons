@@ -13,6 +13,134 @@ public final class SerializableUtils {
 
     /**
      * クラスローダーを指定して、Serializable オブイジェクトをデシリアライズします。
+     * <p>
+     * エラーが発生した場合、null を返します。
+     *
+     * @param stream 入力ストリーム。
+     * @param <T>    デシリアライズするオブジェクトの型。
+     * @return デシリアライズされたオブジェクト。
+     */
+    public static <T extends Serializable> T fromOrNull(InputStream stream) {
+        return fromOrElse(stream, null);
+    }
+
+    /**
+     * クラスローダーを指定して、Serializable オブイジェクトをデシリアライズします。
+     * <p>
+     * エラーが発生した場合、null を返します。
+     *
+     * @param stream      入力ストリーム。
+     * @param classLoader 対象のクラスローダー。
+     * @param <T>         デシリアライズするオブジェクトの型。
+     * @return デシリアライズされたオブジェクト。
+     */
+    public static <T extends Serializable> T fromOrNull(InputStream stream, ClassLoader classLoader) {
+        return fromOrElse(stream, classLoader, null);
+    }
+
+    /**
+     * クラスローダーを指定して、Serializable オブイジェクトをデシリアライズします。
+     * <p>
+     * エラーが発生した場合、null を返します。
+     *
+     * @param bytes 対象のバイナリ。
+     * @param <T>   デシリアライズするオブジェクトの型。
+     * @return デシリアライズされたオブジェクト。
+     */
+    public static <T extends Serializable> T fromOrNull(byte[] bytes) {
+        return fromOrElse(bytes, null);
+    }
+
+    /**
+     * クラスローダーを指定して、Serializable オブイジェクトをデシリアライズします。
+     * <p>
+     * エラーが発生した場合、null を返します。
+     *
+     * @param bytes       対象のバイナリ。
+     * @param classLoader 対象のクラスローダー。
+     * @param <T>         デシリアライズするオブジェクトの型。
+     * @return デシリアライズされたオブジェクト。
+     */
+    public static <T extends Serializable> T fromOrNull(byte[] bytes, ClassLoader classLoader) {
+        return fromOrElse(bytes, classLoader, null);
+    }
+
+    /**
+     * クラスローダーを指定して、Serializable オブイジェクトをデシリアライズします。
+     * <p>
+     * エラーが発生した場合、defaultValue で指定した内容を返します。
+     *
+     * @param stream       入力ストリーム。
+     * @param defaultValue デフォルト値。
+     * @param <T>          デシリアライズするオブジェクトの型。
+     * @return デシリアライズされたオブジェクト。
+     */
+    public static <T extends Serializable> T fromOrElse(InputStream stream, T defaultValue) {
+        try {
+            return from(stream);
+        } catch (IOException ex) {
+            return defaultValue;
+        }
+    }
+
+    /**
+     * クラスローダーを指定して、Serializable オブイジェクトをデシリアライズします。
+     * <p>
+     * エラーが発生した場合、defaultValue で指定した内容を返します。
+     *
+     * @param stream       入力ストリーム。
+     * @param classLoader  対象のクラスローダー。
+     * @param defaultValue デフォルト値。
+     * @param <T>          デシリアライズするオブジェクトの型。
+     * @return デシリアライズされたオブジェクト。
+     */
+    public static <T extends Serializable> T fromOrElse(InputStream stream, ClassLoader classLoader, T defaultValue) {
+        try {
+            return from(stream, classLoader);
+        } catch (IOException ex) {
+            return defaultValue;
+        }
+    }
+
+    /**
+     * クラスローダーを指定して、Serializable オブイジェクトをデシリアライズします。
+     * <p>
+     * エラーが発生した場合、defaultValue で指定した内容を返します。
+     *
+     * @param bytes        対象のバイナリ。
+     * @param defaultValue デフォルト値。
+     * @param <T>          デシリアライズするオブジェクトの型。
+     * @return デシリアライズされたオブジェクト。
+     */
+    public static <T extends Serializable> T fromOrElse(byte[] bytes, T defaultValue) {
+        try {
+            return from(bytes);
+        } catch (IOException ex) {
+            return defaultValue;
+        }
+    }
+
+    /**
+     * クラスローダーを指定して、Serializable オブイジェクトをデシリアライズします。
+     * <p>
+     * エラーが発生した場合、defaultValue で指定した内容を返します。
+     *
+     * @param bytes        対象のバイナリ。
+     * @param classLoader  対象のクラスローダー。
+     * @param defaultValue デフォルト値。
+     * @param <T>          デシリアライズするオブジェクトの型。
+     * @return デシリアライズされたオブジェクト。
+     */
+    public static <T extends Serializable> T fromOrElse(byte[] bytes, ClassLoader classLoader, T defaultValue) {
+        try {
+            return from(bytes, classLoader);
+        } catch (IOException ex) {
+            return defaultValue;
+        }
+    }
+
+    /**
+     * クラスローダーを指定して、Serializable オブイジェクトをデシリアライズします。
      *
      * @param stream      入力ストリーム。
      * @param classLoader 対象のクラスローダー。
